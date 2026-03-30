@@ -17,16 +17,7 @@ class UERIG_PT_main_panel(Panel):
     def draw(self, context):
         layout = self.layout
         props = context.scene.ue_rig_converter
-        
-        # Import section
-        box = layout.box()
-        box.label(text="Import", icon='IMPORT')
-        box.operator("uerig.import_glb", text="Import GLB", icon='ARMATURE_DATA')
-        if props.input_glb_path:
-            box.label(text=f"File: {props.input_glb_path.split('/')[-1]}", icon='FILE')
-        
-        layout.separator()
-        
+
         # Conversion Settings
         box = layout.box()
         box.label(text="Conversion Settings", icon='SETTINGS')
@@ -48,13 +39,7 @@ class UERIG_PT_main_panel(Panel):
         box.separator()
         
         # Export
-        box.prop(props, "export_mode", text="Export Mode")
-        
-        if props.export_mode in ('FBX', 'BOTH'):
-            box.operator("uerig.export_fbx", text="Export FBX", icon='EXPORT')
-        
-        if props.export_mode in ('UASSET', 'BOTH'):
-            box.label(text=".uasset export coming soon!", icon='INFO')
+        box.operator("uerig.export_fbx", text="Export FBX", icon='EXPORT')
         
         layout.separator()
         

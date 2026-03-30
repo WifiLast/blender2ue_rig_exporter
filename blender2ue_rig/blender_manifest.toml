@@ -5,7 +5,7 @@ version = "0.0.2"
 tagline = "Symmetrically cut mesh objects into two halves"
 maintainer = "Wiffzackius"
 type = "add-on"
-tags = ["Mesh"]
+tags = ["Import-Export"]
 blender_version_min = "4.2.0"
 license = ["SPDX:GPL-3.0-or-later"]
 website = "https://github.com/WifiLast/blender_split_symmetric"
@@ -14,4 +14,4 @@ copyright = [
 ]
 
 [permissions]
-files = "Export STL, PLY, OBJ files"
+files = "Export FBX files"

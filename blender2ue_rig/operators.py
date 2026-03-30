@@ -5,7 +5,7 @@ Operators for UE Rig Converter
 import bpy
 from bpy.types import Operator
 from bpy.props import StringProperty
-from bpy_extras.io_utils import ImportHelper, ExportHelper
+from bpy_extras.io_utils import ExportHelper
 import os
 
 from .core.ue_skeleton import (
@@ -17,38 +17,6 @@ from .core.fbx_exporter import (
     prepare_armature_for_export,
     prepare_mesh_for_export
 )
-
-
-class UERIG_OT_import_glb(Operator, ImportHelper):
-    """Import GLB file with rigged model"""
-    bl_idname = "uerig.import_glb"
-    bl_label = "Import GLB"
-    bl_options = {'REGISTER', 'UNDO'}
-    
-    filename_ext = ".glb"
-    filter_glob: StringProperty(
-        default="*.glb;*.gltf",
-        options={'HIDDEN'},
-    )
-    
-    def execute(self, context):
-        """Import GLB file"""
-        props = context.scene.ue_rig_converter
-        props.input_glb_path = self.filepath
-        
-        # Import GLB
-        bpy.ops.import_scene.gltf(filepath=self.filepath)
-        
-        # Remove default LOD sphere that Blender adds
-        for obj in bpy.data.objects:
-            if obj.name.startswith("LOD") and obj.type == 'MESH':
-                # Check if it's a sphere (default LOD visualization)
-                if len(obj.data.vertices) in [482, 240, 120]:  # Common sphere vertex counts
-                    bpy.data.objects.remove(obj, do_unlink=True)
-                    self.report({'INFO'}, "Removed default LOD sphere")
-        
-        self.report({'INFO'}, f"Imported: {os.path.basename(self.filepath)}")
-        return {'FINISHED'}
 
 
 class UERIG_OT_validate_rig(Operator):
@@ -217,7 +185,6 @@ class UERIG_OT_export_fbx(Operator, ExportHelper):
 
 # List of operator classes
 classes = (
-    UERIG_OT_import_glb,
     UERIG_OT_validate_rig,
     UERIG_OT_convert_rig,
     UERIG_OT_export_fbx,

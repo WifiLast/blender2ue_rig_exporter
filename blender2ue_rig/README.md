@@ -4,7 +4,7 @@ Converts GLB rigged models to Unreal Engine compatible skeletal meshes.
 
 ## Features
 
-- **GLB Import**: Import rigged models from GLB/GLTF files
+- **Built-in GLB/GLTF Import**: Use Blender's native importer for rigged models
 - **UE Bone Naming**: Automatic conversion to UE naming conventions
 - **Coordinate Conversion**: Handles Blender Z-up RH to UE Z-up LH
 - **FBX Export**: Export with UE-optimized settings
@@ -25,8 +25,8 @@ Converts GLB rigged models to Unreal Engine compatible skeletal meshes.
 ## Usage
 
 1. **Import GLB**:
-   - Open the "UE Rig" panel in the 3D Viewport sidebar (N key)
-   - Click "Import GLB" and select your rigged GLB file
+   - Use Blender's built-in importer: File -> Import -> glTF 2.0 (.glb/.gltf)
+   - Import your rigged GLB/GLTF file before using the add-on
 
 2. **Configure Settings**:
    - Enable "Use UE Naming Conventions" to rename bones
@@ -76,7 +76,6 @@ The addon automatically maps common bone names to UE conventions:
 
 ## Future Features
 
-- Direct `.uasset` generation (Phase 2)
 - Skin weight profile support
 - LOD generation
 - Custom bone mapping editor
