@@ -1,17 +1,17 @@
 schema_version = "1.0.0"
-id = "cut_sym"
-name = "Cut Sym"
-version = "0.0.2"
-tagline = "Symmetrically cut mesh objects into two halves"
+id = "blender2ue_rig_exporter"
+name = "Rig UE5 Exporter"
+version = "0.0.3"
+tagline = "Export rig to UE5"
 maintainer = "Wiffzackius"
 type = "add-on"
 tags = ["Import-Export"]
 blender_version_min = "4.2.0"
 license = ["SPDX:GPL-3.0-or-later"]
-website = "https://github.com/WifiLast/blender_split_symmetric"
+website = "https://github.com/WifiLast/blender2ue_rig_exporter"
 copyright = [
     "2026 Martin St.",
 ]
 
 [permissions]
-files = "Export FBX files"
+files = "Export STL, PLY, OBJ files"
